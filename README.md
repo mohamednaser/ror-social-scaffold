@@ -63,7 +63,8 @@ TBA
 
 ## Authors
 
-TBA
+- [Mohamed Naser](https://www.linkedin.com/in/mohamednaseramein/)
+
 
 ## 🤝 Contributing
 
