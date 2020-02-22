@@ -1,0 +1,11 @@
+<section class="users-section">
+  Pending friends Request 
+ 
+     <% current_user.friendships_requests.each do |pending_request| %>
+      <li>
+        Name: <%= pending_request.friend.name %>
+        Accept
+      </li>
+    <% end %>
+</section>
+

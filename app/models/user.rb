@@ -13,5 +13,16 @@ class User < ApplicationRecord
   has_many :friendships_requests
   has_many :inverse_friendships_requests, class_name: 'FriendshipsRequest', foreign_key: 'friend_id'
 
+  has_many :friendships
+  has_many :friendships_inverse, class_name: 'Friendship', foreign_key: 'friend_id'
+
+  def friends
+    friendships + friendships_inverse
+  end
+
+  def friend?(user)
+    friends.include? user
+  end
+
   
 end
