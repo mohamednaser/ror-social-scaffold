@@ -35,6 +35,10 @@ a {
   color: $primary-color-text;
 }
 
+.blue-color-link{
+  color: blue;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -43,7 +47,7 @@ a {
   color: $primary-color-light;
 
   .menu {
-    width: 80%;
+    width: 70%;
     justify-content: space-between;
 
     .menu-item {

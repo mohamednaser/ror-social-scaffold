@@ -1,10 +1,10 @@
 <section class="users-section">
-  Pending friends Request 
+  Pending friend Requests :
  
-     <% current_user.friendships_requests.each do |pending_request| %>
+     <% pending_requests(current_user.inverse_friendships_requests).each do |pending_request| %>
       <li>
-        Name: <%= pending_request.friend.name %>
-        Accept
+        Name: <%= pending_request.user.name %>
+        <%= link_to  "Accept Invitation", invitation_accept_path(invitation_id: pending_request.id) , method: :post , class: 'blue-color-link' %>
       </li>
     <% end %>
 </section>

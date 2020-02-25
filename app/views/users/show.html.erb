@@ -1,6 +1,20 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
-  <%= link_to 'Send Friend Request', friend_requests_path(  friend_id: @user.id) , method: :post %>
+  <%= 
+    if can_sent_invitation?(@user)
+      link_to 'Send Friend Request', friend_requests_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
+    end      
+  %>
+
+  <div>
+  <br>
+    <h3><%= "#{@user.name}'s friends :"%></h3>
+      <%  current_user.friends.each do |friend| %>
+      <li>
+        <%= link_to  friend.user.name, user_path(friend.user) , class: 'blue-color-link' %>
+      </li>
+    <% end %>
+  </div>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
