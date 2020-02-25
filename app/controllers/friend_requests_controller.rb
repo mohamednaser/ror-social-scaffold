@@ -14,9 +14,10 @@ class FriendRequestsController < ApplicationController
     if @new_friendship_request.save
       redirect_to users_path, notice: 'Request Sent successfully .'
     else
-      redirect_to user_path(User.find(params[:friend_id])), alert: @new_friendship_request.errors.full_messages.join('. ').to_s
+      error_messages_string = @new_friendship_request.errors.full_messages.join('. ').to_s
+      redirect_to user_path(User.find(params[:friend_id])), alert: error_messages_string
     end
-   end
+  end
 
   def accept
     invitation_request = FriendshipsRequest.find(params[:invitation_id])
