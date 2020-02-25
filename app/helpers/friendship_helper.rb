@@ -18,4 +18,11 @@ module FriendshipHelper
 
     true
   end
+
+  def friend_obj(compare_user , friendship)
+    return friendship.inverse_friends if friendship.user_id == compare_user.id
+
+    friendship.user
+  end
+
 end
