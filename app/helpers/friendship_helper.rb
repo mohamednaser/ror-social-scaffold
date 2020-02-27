@@ -25,7 +25,7 @@ module FriendshipHelper
                      method: :post, class: 'blue-color-link'
     end
 
-    return if can_sent_invitation?(user)
+    return unless can_sent_invitation?(user)
 
     link_to 'Invite To Friendship', invitation_send_path(friend_id: user.id), method: :post, class: 'blue-color-link'
   end
