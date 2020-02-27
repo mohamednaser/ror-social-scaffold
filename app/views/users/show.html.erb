@@ -2,7 +2,7 @@
   <h2><%= "Name: #{@user.name}" %></h2>
   <%= 
     if can_sent_invitation?(@user)
-      link_to 'Send Friend Request', friend_requests_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
+      link_to 'Invite To Friend Ship', friend_requests_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
     end      
   %>
 

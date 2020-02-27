@@ -15,7 +15,7 @@ module FriendshipHelper
     return false if user.id == current_user.id
     return false if friend?(user)
     return false if friend_request_sent_before?(user)
-
+    
     true
   end
 

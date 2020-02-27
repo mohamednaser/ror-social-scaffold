@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :friend_requests, only: [:create,:index]
 
   post "invitation/accept", to: "friend_requests#accept"
+  post "invitation/reject", to: "friend_requests#reject"
+  post "invitation/cancel", to: "friend_requests#cancel"
 
   resources :posts, only: [:index, :create] do
     resources :comments, only: [:create]

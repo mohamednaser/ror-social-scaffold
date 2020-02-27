@@ -15,4 +15,10 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def curent_user_name
+    return current_user.name if current_user
+
+    ' '
+  end
 end
