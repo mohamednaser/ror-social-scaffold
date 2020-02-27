@@ -10,7 +10,7 @@ RSpec.describe 'Test Friendship Model ' do
     @friendship_request.friend_id = @second_user.id
     @friendship_request.save
 
-    visit login_path 
+    visit login_path
 
     render
   end

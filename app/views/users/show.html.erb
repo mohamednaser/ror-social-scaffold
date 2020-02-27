@@ -1,9 +1,7 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
   <%= 
-    if can_sent_invitation?(@user)
-      link_to 'Invite To Friend Ship', invitation_send_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
-    end      
+  applicable_relation_link(@user)      
   %>
 
   <div>
