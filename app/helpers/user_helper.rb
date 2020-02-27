@@ -6,4 +6,5 @@ module UserHelper
       request.status.nil?
     end
   end
+
 end

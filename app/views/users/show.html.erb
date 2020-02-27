@@ -2,16 +2,16 @@
   <h2><%= "Name: #{@user.name}" %></h2>
   <%= 
     if can_sent_invitation?(@user)
-      link_to 'Invite To Friend Ship', friend_requests_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
+      link_to 'Invite To Friend Ship', invitation_send_path(friend_id: @user.id) , method: :post , class: 'blue-color-link'
     end      
   %>
 
   <div>
   <br>
     <h3><%= "#{@user.name}'s friends :"%></h3>
-      <%  @user.friends.each do |relation| %>
+      <%  @user.friends.each do |friend| %>
       <li>
-        <%= link_to  friend_obj(@user , relation).name, user_path(friend_obj@user , (relation)) , class: 'blue-color-link' %>
+        <%= link_to  friend.name, user_path(friend) , class: 'blue-color-link' %>
       </li>
     <% end %>
   </div>

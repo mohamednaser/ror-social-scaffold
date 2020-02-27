@@ -1,0 +1,18 @@
+<section class="users-section">
+  <ul class="users-list">
+    <%
+     if @pending_friends.empty?          
+    %>
+    <h1> No Pending Requests </h1>
+    <% end %>
+    <% @pending_friends.each do |pending_request| %>
+      <li>
+        - A Friend Request From <%= link_to pending_request.user.name, user_path(pending_request.user) , class: 'blue-color-link' %>
+        <span class="profile-link">
+          <%= link_to 'Accept ',  invitation_accept_path(invitation_id: pending_request.id),method: :post , class: 'profile-link' %>
+          <%= link_to 'Ignore ',  invitation_cancel_path(invitation_id: pending_request.id),method: :post ,  class: 'profile-link' %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</section>

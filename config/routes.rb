@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show]
-  resources :friend_requests, only: [:create,:index]
 
-  post "invitation/accept", to: "friend_requests#accept"
-  post "invitation/reject", to: "friend_requests#reject"
-  post "invitation/cancel", to: "friend_requests#cancel"
+  post "invitation/send", to: "friends#create"
+  post "invitation/accept", to: "friends#accept"
+  post "invitation/cancel", to: "friends#cancel"
+  
+  get "friends/pending", to: "friends#pending"
+
 
   resources :posts, only: [:index, :create] do
     resources :comments, only: [:create]

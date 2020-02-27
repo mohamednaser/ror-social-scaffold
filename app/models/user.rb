@@ -10,14 +10,25 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  has_many :friendships_requests
-  has_many :inverse_friendships_requests, class_name: 'FriendshipsRequest', foreign_key: 'friend_id'
-
   has_many :friendships
   has_many :friendships_inverse, class_name: 'Friendship', foreign_key: 'friend_id'
 
   def friends
-    friendships + friendships_inverse
+    friends = []
+
+    unless friendships_inverse.confirmed.empty?
+      friendships_inverse.confirmed.each do |friend|
+        friends.push(friend.user)
+      end
+    end
+
+    unless friendships.confirmed.empty?
+      friendships.confirmed.each do |friend|
+        friends.push(friend.inverse_friends)
+      end
+    end
+
+    friends
   end
 
   def friend?(user)
