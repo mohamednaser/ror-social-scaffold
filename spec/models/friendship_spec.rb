@@ -14,6 +14,22 @@ RSpec.describe 'Test Friendship Model ' do
       expect(@friendship_obj).to be_valid
     end
 
+    it 'Create A valid friendship With Pending Status' do
+      @friendship_obj.user_id = @first_user.id
+      @friendship_obj.friend_id = @second_user.id
+      @friendship_obj.confirmed = false
+
+      expect(@friendship_obj).to be_valid
+    end
+
+    it 'Reject or Cancel Friendship ' do
+      @friendship_obj.user_id = @first_user.id
+      @friendship_obj.friend_id = @second_user.id
+      @friendship_obj.save
+
+      expect(@friendship_obj.destroy).to be_valid
+    end
+
     it 'invalid friendship with missed friend id ' do
       @friendship_obj.user_id = @first_user.id
 
