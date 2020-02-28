@@ -44,4 +44,15 @@ class FriendsController < ApplicationController
     @pending_friends = current_user.friendships_inverse.pending
     render 'users/pending_friends'
   end
+
+  def create_mutural_friend
+    @friendship1 = Friendship.find_by(user_id: params[:friend_id], friend_id: params[:user_id])
+    @friendship2 = Friendship.create(user_id: params[:user_id], friend_id: params[:friend_id])
+    @friendship1.confirmed = true
+
+    redirect_to users_path, notice: 'You Are Friends Now' if @friendship1.save
+
+    @friendship2.confirmed = true
+    redirect_to users_path, notice: 'You Are Friends Now' if @friendship1.save && @friendship2.save
+  end
 end
