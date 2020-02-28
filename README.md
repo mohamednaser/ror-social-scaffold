@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-TBA
+[Live Demo Link](https://ror-social-media-app.herokuapp.com/users/sign_in)
 
 
 ## Getting Started
@@ -55,14 +55,11 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
 ### Deployment
 
 TBA
 
 ## Authors
-
 - [Mohamed Naser](https://www.linkedin.com/in/mohamednaseramein/)
 
 
